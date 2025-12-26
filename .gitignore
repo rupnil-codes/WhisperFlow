@@ -1,6 +1,3 @@
-# Specific Project Folder(s)
-recordings/
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
