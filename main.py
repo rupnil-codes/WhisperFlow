@@ -7,18 +7,18 @@ import numpy as np
 from silero_vad import load_silero_vad, read_audio, get_speech_timestamps
 import wave
 
-from transciption import transcribe_audio
+from transcription import transcribe_audio
 import config
 
 ## Parameters
 
-CHUNK = 512
+CHUNK = 256
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 16000
 
-SILENCE_DURATION = 1.25 # Silence duration in seconds
-NOISE_SENSITIVITY = 2000
+SILENCE_DURATION = 1.5 # Silence duration in seconds
+NOISE_SENSITIVITY = 1500
 
 FOLDER = "recordings"
 SETTINGS_FILE = "settings.json"
@@ -170,7 +170,7 @@ def main():
     ambient_noise_level = analyse_ambient_noise()
 
     while True:
-        if len(prev_frames) > 2:
+        if len(prev_frames) > 16:
             prev_frames = prev_frames[1:]
 
         audio_data: bytes = stream.read(CHUNK)

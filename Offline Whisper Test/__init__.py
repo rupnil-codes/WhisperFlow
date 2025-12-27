@@ -1,0 +1,1 @@
+# So if whisper_live works it would be realtime But it would need a backend server hmm
